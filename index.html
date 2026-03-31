@@ -1,1 +1,111 @@
-Hello World
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WingMeng - 个人主页</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav>
+    <a href="#home">关于我</a>
+    <a href="#career">项目生涯</a>
+    <a href="#portfolio">个人作品</a>
+    <a href="#techNotes">技术分享</a>
+  </nav>
+
+  <!-- 右侧指示器 -->
+  <aside class="section-indicator">
+    <div
+      class="indicator-dot active"
+      data-label="关于我"
+      onclick="scrollToSection('home')"
+    ></div>
+    <div
+      class="indicator-dot"
+      data-label="项目生涯"
+      onclick="scrollToSection('career')"
+    ></div>
+    <div
+      class="indicator-dot"
+      data-label="个人作品"
+      onclick="scrollToSection('portfolio')"
+    ></div>
+    <div
+      class="indicator-dot"
+      data-label="技术分享"
+      onclick="scrollToSection('techNotes')"
+    ></div>
+  </aside>
+
+  <main>
+    <section id="home">
+      <div class="home-content">
+        <div class="home-text">
+          <div class="logo">
+            <h1 class="name">孟智强</h1>
+            <small>Wing Meng</small>
+          </div>
+          <p>
+            我是一名 Web 前端开发者 (Web Front-end Developer)，<br />
+            80 后全栈攻城狮，技术实战派，持续学习者。
+          </p>
+        </div>
+        <div class="home-illustration">
+          <picture>
+            <source srcset="./assets/workspace.webp" type="image/webp" />
+            <img src="./assets/workspace.png" alt="Illustration" />
+          </picture>
+        </div>
+      </div>
+    </section>
+    <section id="career">
+      <h2 class="section-title">项目生涯 / Projects</h2>
+      <div>
+
+      </div>
+    </section>
+    <section id="portfolio">
+      <h2 class="section-title">个人作品 / Portfolio</h2>
+    </section>
+    <section id="techNotes">
+      <h2 class="section-title">技术分享 / Tech Notes</h2>
+    </section>
+  </main>
+
+  <script>
+    // 指示器点击滚动
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 监听滚动，更新导航和指示器状态
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    const indicatorDots = document.querySelectorAll('.indicator-dot');
+
+    function updateActiveState() {
+      let currentSection = '';
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - window.innerHeight / 2) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      // 更新指示器状态
+      indicatorDots.forEach((dot) => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('onclick').includes(currentSection)) {
+          dot.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveState);
+    updateActiveState(); // 初始化
+  </script>
+</body>
+</html>
