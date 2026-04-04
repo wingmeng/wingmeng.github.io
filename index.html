@@ -3,52 +3,245 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="孟智强 (Wing Meng) - 经验丰富的 Web 前端开发者，全栈打底，懂设计，有产品思维。技术实战派，持续学习者，将优雅奉为圭臬，以匠心打磨产品。" />
+  <meta name="keywords" content="前端开发, Web开发, 全栈开发, 孟智强, Wing Meng, 程序员, 开发者" />
+  <meta name="author" content="Wing Meng" />
   <link rel="shortcut icon" href="./assets/logo.ico" />
-  <title>WingMeng - 个人主页</title>
+  <title>Wing Meng - 个人主页</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <!-- 导航栏 -->
-  <!-- <nav>
-    <a href="/project-history" target="project-history">项目生涯</a>
-    <a href="#portfolio">个人作品</a>
-    <a href="#techNotes">技术分享</a>
-  </nav> -->
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="#home" class="nav-link">首页</a>
+      <a href="#skills" class="nav-link">技能</a>
+      <a href="#projects" class="nav-link">作品</a>
+      <a href="#about" class="nav-link">关于</a>
+      <a href="#contact" class="nav-link">联系</a>
+    </nav>
+  </header>
 
   <main>
-    <section id="home">
-      <div class="home-logo">
-        <img src="./assets/logo.png" alt="wingmeng logo" />
-      </div>
-      <div class="home-content">
-        <div class="home-text">
+    <section id="home" class="personal-section">
+      <div class="personal-content">
+        <div class="personal-copy">
           <div class="name-wrap">
-            <h1 class="name">孟智强</h1>
-            <small>Wing Meng</small>
+            <h1>孟智强</h1>
+            <small class="english-name">Wing Meng</small>
           </div>
-          <p>
-            我是一名经验老道的 Web 前端开发者<br />
+          <p class="personal-description">
+            经验丰富的 Web 前端开发者<br>
             全栈打底，懂设计，有产品思维<br />
-            技术实战派，持续学习者<br />
-            将优雅奉为圭臬，以匠心打磨产品
+            技术实战派，持续学习者
           </p>
 
-          <nav>
-            <a href="/project-history" target="project">项目生涯</a>
-          </nav>
+          <div class="personal-console">
+            <pre><code>➜ cd ~/projects/wingmeng
+➜ npm run build
+✔ 可维护组件架构
+✔ 工程化落地
+✔ 全链路交付
+
+const profile = {
+  role: 'Full Stack Developer (Frontend Focused)',
+  focus: '数据可视化 | 产品体验 | 工程效能 | 全栈交付',
+  mindset: '将优雅奉为圭臬，以匠心打磨产品',
+};</code></pre>
+          </div>
+
+          <div class="personal-actions">
+            <a href="/project-history" class="button button-primary">项目历史</a>
+            <a href="#contact" class="button button-secondary">立即联系</a>
+          </div>
         </div>
-        <div class="home-illustration">
+
+        <div class="personal-visual">
           <picture>
             <source srcset="./assets/workspace.webp" type="image/webp" />
-            <img src="./assets/workspace.png" alt="Illustration" />
+            <img src="./assets/workspace.png" alt="工作区插图" />
           </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能展示区 -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <h2 class="section-title">技术技能</h2>
+        <div class="skills-content">
+          <div class="skill-category">
+            <h3 class="skill-category-title">前端开发</h3>
+            <ul class="skill-list">
+              <li class="skill-item" style="--level: 9">基础：TypeScript / HTML5 / CSS3</li>
+              <li class="skill-item" style="--level: 7">框架：Vue.js / React / Angular</li>
+              <li class="skill-item" style="--level: 8">可视化：ECharts / G6 / Three.js</li>
+              <li class="skill-item" style="--level: 6">多端：小程序 / H5 / 应用插件</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3 class="skill-category-title">后端开发</h3>
+            <ul class="skill-list">
+              <li class="skill-item" style="--level: 4">Node.js / Koa2 / NestJS</li>
+              <li class="skill-item" style="--level: 1">Python / Django</li>
+              <li class="skill-item" style="--level: 2">PHP</li>
+              <li class="skill-item" style="--level: 0.5">数据库</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3 class="skill-category-title">工具与设计</h3>
+            <ul class="skill-list">
+              <li class="skill-item" style="--level: 5">工程：Webpack / Vite / CI/CD</li>
+              <li class="skill-item" style="--level: 6">效能：组件库 / 脚手架 / AI 辅助开发</li>
+              <li class="skill-item" style="--level: 9">协作：Git / GitLab Flow / Swagger</li>
+              <li class="skill-item" style="--level: 8">设计：UI/UX / Axure</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目展示区 -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <h2 class="section-title">项目作品</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-image">
+              <img src="./assets/poster/3d-honoi.png" alt="3D 汉诺塔游戏">
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">3D 汉诺塔游戏</h3>
+              <p class="project-description">基于 three.js 实现的 3D 汉诺塔游戏，采用 MVP 架构，支持自定义盘子数量、步数 / 耗时统计、胜利彩屑特效与平滑动画。纯原生 JS 开发，无其他框架依赖，完整实现 3D 场景搭建、物体建模、轨道控制与游戏逻辑。</p>
+              <div class="project-links">
+                <a href="/hanoi" class="project-link demo-link" target="_blank">查看 Demo</a>
+                <a href="https://juejin.cn/post/7350123870672355379" class="project-link article-link" target="_blank" rel="noreferrer nofollow">相关文章</a>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Three.js</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image">
+              <img src="./assets/poster/progress-circle.png" alt="环形进度条组件">
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">环形进度条组件</h3>
+              <p class="project-description">基于 CSS + SVG 实现的可灵活配置环形进度条组件，支持基础环形、仪表盘式两种形态，通过 SVG 的 stroke-dasharray 结合弧长公式实现进度可视化，依托 CSS 变量实现进度、尺寸、环宽、颜色的动态控制。代码高复用、易扩展，可快速集成到各类前端项目中。</p>
+              <div class="project-links">
+                <a href="https://codepen.io/wingmeng/pen/MWZBeBM" class="project-link demo-link" target="_blank">Demo1</a>
+                <a href="https://codepen.io/wingmeng/pen/NWeZzgR" class="project-link article-link" target="_blank">Demo2</a>
+                <a href="https://juejin.cn/post/7291186330910326842" class="project-link article-link" target="_blank">相关文章</a>
+              </div>
+              <div class="project-tags">
+                <span class="tag">CSS</span>
+                <span class="tag">SVG</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image">
+              <img src="./assets/poster/bdd.png" alt="冰墩墩">
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">冰墩墩</h3>
+              <p class="project-description">纯 CSS + HTML 实现的冰墩墩可视化效果，核心运用 CSS 的 border-radius 完全体写法、渐变、盒阴影、投影滤镜、transform 变换、伪元素等技术，实现不规则椭圆身体、多层冰丝带面部、生动眼部细节等视觉效果。</p>
+              <div class="project-links">
+                <a href="https://codepen.io/editor/wingmeng/pen/019d58e6-481e-7e8a-8ba0-b1adf4f8774e" class="project-link demo-link" target="_blank">查看 Demo</a>
+                <a href="https://juejin.cn/post/7200790674622824506" class="project-link article-link" target="_blank">相关文章</a>
+              </div>
+              <div class="project-tags">
+                <span class="tag">CSS</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于我区域 -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2 class="section-title">关于我</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-paragraph">
+              我是一名热爱技术的 Web 前端开发者，拥有多年的开发经验。我不仅专注于前端技术，也具备后端开发能力，能够从全栈角度思考和解决问题。
+            </p>
+            <p class="about-paragraph">
+              在设计方面，我有良好的审美能力和产品思维，能够将用户需求转化为优秀的产品体验。我相信技术应该服务于人，因此我始终以用户体验为核心来构建产品。
+            </p>
+            <p class="about-paragraph">
+              作为一名持续学习者，我不断关注行业动态，学习新技术，提升自己的技术能力和视野。我相信只有不断进步，才能在这个快速发展的行业中保持竞争力。
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">年开发经验</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">完成项目</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">掌握技术</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式区 -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title">联系我</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <p class="contact-text">
+              如果您有合作意向，欢迎通过以下方式与我联系。我会尽快回复您的消息。
+            </p>
+            <div class="contact-methods">
+              <a class="contact-method" title="wingmeng 加上 qq.com" onclick="openMail(event)">
+                <span class="contact-icon">📧</span>
+                <span class="contact-label">邮箱</span>
+              </a>
+              <a class="contact-method" href="https://github.com/wingmeng" target="wingmeng">
+                <span class="contact-icon">🐙</span>
+                <span class="contact-label">GitHub</span>
+              </a>
+              <div class="contact-method wechat-method">
+                <span class="contact-icon">💬</span>
+                <span class="contact-label">微信</span>
+                <img src="./assets/wechat-qr.png" alt="微信二维码" class="wechat-qr" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- 页脚 -->
   <footer class="site-footer">
-    <p>© 2026 Wing Meng. All rights reserved.</p>
+    <div class="container">
+      <p class="footer-text">
+        © 2026 Wing Meng. All rights reserved.
+        <img src="./assets/logo.png" class="footer-logo" alt="wingmeng logo" />
+      </p>
+    </div>
   </footer>
+
+  <script>
+    function openMail(event, el) {
+      event.preventDefault();
+      const name = 'wingmeng';
+      const domain = 'qq.com';
+
+      window.location.href = `mailto:${[name, domain].join(String.fromCharCode(64))}`;
+    }
+  </script>
 </body>
 </html>
