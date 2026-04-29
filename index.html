@@ -6,7 +6,7 @@
   <meta name="description" content="孟智强 (Wing Meng) - 经验丰富的 Web 前端开发者，全栈打底，懂设计，有产品思维。技术实战派，持续学习者，将优雅奉为圭臬，以匠心打磨产品。" />
   <meta name="keywords" content="前端开发, Web开发, 全栈开发, 孟智强, Wing Meng, 程序员, 开发者" />
   <meta name="author" content="Wing Meng" />
-  <link rel="shortcut icon" href="./assets/logo.ico" />
+  <link rel="shortcut icon" href="./assets/images/logo.ico" />
   <title>Wing Meng - 个人主页</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
@@ -58,8 +58,8 @@ const profile = {
         <div class="personal-visual">
           <div class="ability-charts"></div>
           <picture>
-            <source srcset="./assets/workspace.webp" type="image/webp" />
-            <img src="./assets/workspace.png" alt="工作区插图" />
+            <source srcset="./assets/images/workspace.webp" type="image/webp" />
+            <img src="./assets/images/workspace.png" alt="工作区插图" />
           </picture>
         </div>
       </div>
@@ -108,7 +108,7 @@ const profile = {
         <div class="projects-grid">
           <article class="project-card">
             <div class="project-image">
-              <img src="./assets/poster/3d-honoi.png" alt="3D 汉诺塔游戏">
+              <img src="./assets/images/3d-honoi.png" alt="3D 汉诺塔游戏">
             </div>
             <div class="project-info">
               <h3 class="project-title">3D 汉诺塔游戏</h3>
@@ -125,7 +125,7 @@ const profile = {
           </article>
           <article class="project-card">
             <div class="project-image">
-              <img src="./assets/poster/progress-circle.png" alt="环形进度条组件">
+              <img src="./assets/images/progress-circle.png" alt="环形进度条组件">
             </div>
             <div class="project-info">
               <h3 class="project-title">环形进度条组件</h3>
@@ -143,7 +143,7 @@ const profile = {
           </article>
           <article class="project-card">
             <div class="project-image">
-              <img src="./assets/poster/bdd.png" alt="冰墩墩">
+              <img src="./assets/images/bdd.png" alt="冰墩墩">
             </div>
             <div class="project-info">
               <h3 class="project-title">冰墩墩</h3>
@@ -216,7 +216,7 @@ const profile = {
               <div class="contact-method wechat-method">
                 <span class="contact-icon">💬</span>
                 <span class="contact-label">微信</span>
-                <img src="./assets/wechat-qr.png" alt="微信二维码" class="wechat-qr" />
+                <img src="./assets/images/wechat-qr.png" alt="微信二维码" class="wechat-qr" />
               </div>
             </div>
           </div>
@@ -230,12 +230,12 @@ const profile = {
     <div class="container">
       <p class="footer-text">
         © 2026 Wing Meng. All rights reserved.
-        <img src="./assets/logo.png" class="footer-logo" alt="wingmeng logo" />
+        <img src="./assets/images/logo.png" class="footer-logo" alt="wingmeng logo" />
       </p>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/echarts.min.js"></script>
+  <script src="./assets/libs/echarts.min.js"></script>
   <script>
     // 存储所有图表实例，用于统一管理 resize
     const chartInstances = [];
