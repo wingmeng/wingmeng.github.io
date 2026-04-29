@@ -56,6 +56,7 @@ const profile = {
         </div>
 
         <div class="personal-visual">
+          <div class="ability-charts"></div>
           <picture>
             <source srcset="./assets/workspace.webp" type="image/webp" />
             <img src="./assets/workspace.png" alt="工作区插图" />
@@ -234,7 +235,161 @@ const profile = {
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/echarts.min.js"></script>
   <script>
+    // 存储所有图表实例，用于统一管理 resize
+    const chartInstances = [];
+
+    buildCharts(document.querySelector('.ability-charts'));
+
+    function buildCharts(el) {
+      const chart = echarts.init(el, 'dark');
+      const option = {
+        backgroundColor: 'transparent',
+        color: '#66d9e8',
+        tooltip: {
+          confine: true,
+          backgroundColor: 'rgba(10, 16, 24, 0.96)',
+          borderColor: 'rgba(102, 217, 232, 0.18)',
+          borderWidth: 1,
+          textStyle: { color: '#c8f1ff' },
+          formatter(params) {
+            const indicators = option.radar.indicator;
+            const values = params.data.value;
+            let result = '';
+
+            indicators.forEach((indicator, index) => {
+              result += `<div style="margin-bottom: 8px;">
+                <div>
+                  <strong style="color: #66d9e8">${indicator.name}</strong>
+                  <span style="color: #c8f1ff; margin-left: 8px;">${values[index]}</span>
+                </div>
+                <p style="color: #888; font-size: 12px;">${indicator.descp}</p>
+              </div>`;
+            });
+            return result;
+          }
+        },
+        radar: {
+          radius: '70%',
+          indicator: [
+            {
+              name: '业务交付',
+              descp: '功能开发、需求实现、业务场景落地、迭代效率',
+              max: 10
+            },
+            {
+              name: '架构工程',
+              descp: '项目架构、工程化、规范体系、微前端、基建建设',
+              max: 10
+            },
+            {
+              name: '技术深耕',
+              descp: '框架底层、JS/TS 基础、源码理解、技术深度',
+              max: 10
+            },
+            {
+              name: '问题攻坚',
+              descp: '疑难 Bug 排查、线上故障处理、兼容性、性能问题',
+              max: 10
+            },
+            {
+              name: '全栈拓展',
+              descp: 'Node、服务接口、简单后端能力、全链路开发',
+              max: 10
+            },
+            {
+              name: '产品思维',
+              descp: '需求拆解、体验优化、UI/交互认知、合理方案权衡',
+              max: 10
+            },
+            {
+              name: '协同协作',
+              descp: '跨团队沟通、上下游协作、流程配合、文档沉淀',
+              max: 10
+            },
+            {
+              name: '成长自驱',
+              descp: '技术迭代、复盘沉淀、主动优化、持续学习',
+              max: 10
+            }
+          ],
+          axisName: {
+            color: '#c8f1ff',
+            backgroundColor: 'rgba(10, 16, 24, 0.96)',
+            borderRadius: 20,
+            padding: [2, 8],
+            lineHeight: 20,
+            borderWidth: 1,
+            borderColor: 'rgba(102, 217, 232, 0.18)'
+          }
+        },
+        series: [
+          {
+            type: 'radar',
+            data: [
+              {
+                label: {
+                  show: true,
+                  fontSize: 15,
+                  fontWeight: 'bold'
+                },
+                 
+                value: [7.5, 7, 8, 9, 4.5, 9.5, 8, 8.5],
+                areaStyle: {
+                  color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
+                    { offset: 0, color: 'rgba(102, 217, 232, 0.1)' },
+                    { offset: 1, color: 'rgba(102, 217, 232, 0.5)' }
+                  ])
+                }
+              }
+            ]
+          }
+        ],
+        media: [
+          {
+            query: { maxWidth: 460 },
+            option: {
+              radar: { radius: '50%' }
+            }
+          },
+          {
+            query: { minWidth: 460 },
+            option: {
+              radar: { radius: '70%' }
+            }
+          }
+        ]
+      };
+
+      chart.setOption(option);
+      chartInstances.push(chart);
+    }
+
+    // 节流函数：在一定时间间隔内只执行一次
+    function throttle(func, delay) {
+      let lastTime = 0;
+
+      return function(...args) {
+        const now = Date.now();
+
+        if (now - lastTime >= delay) {
+          lastTime = now;
+          func.apply(this, args);
+        }
+      };
+    }
+
+    // 窗口尺寸变化时调整所有图表大小
+    const handleWindowResize = throttle(() => {
+      chartInstances.forEach(chart => {
+        chart.resize();
+      });
+    }, 100);
+
+    // 监听窗口 resize 事件
+    window.addEventListener('resize', handleWindowResize);
+
     function openMail(event, el) {
       event.preventDefault();
       const name = 'wingmeng';
