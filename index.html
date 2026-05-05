@@ -57,6 +57,24 @@ const profile = {
 
         <div class="personal-visual">
           <div class="ability-charts"></div>
+          <div class="exp-bar" style="--progress: 7">
+            <section class="exp-stage stage-basic">
+              <h4>初级</h4>
+              <div class="stage-descrp">可以独立完成一些简单的任务，靠搜索引擎、查文档解决具体的小问题</div>
+            </section>
+            <section class="exp-stage stage-standard">
+              <h4>中级</h4>
+              <div class="stage-descrp">具备一定的问题解决能力，能够胜任大部分常规开发任务</div>
+            </section>
+            <section class="exp-stage stage-advanced">
+              <h4>高级</h4>
+              <div class="stage-descrp">经验丰富，能够独立解决各种各样的领域内问题，能以正确的行动来跟进问题</div>
+            </section>
+            <section class="exp-stage stage-expert">
+              <h4>专家</h4>
+              <div class="stage-descrp">对行业内全局性、体系性的东西了如指掌，能够解决之前从未遇到过的新问题</div>
+            </section>
+          </div>
           <picture>
             <source srcset="./assets/images/workspace.webp" type="image/webp" />
             <img src="./assets/images/workspace.png" alt="工作区插图" />
@@ -237,6 +255,10 @@ const profile = {
 
   <script src="./assets/libs/echarts.min.js"></script>
   <script>
+    requestAnimationFrame(() => {
+      document.querySelector('.exp-bar').classList.add('loaded');
+    });
+
     // 存储所有图表实例，用于统一管理 resize
     const chartInstances = [];
 

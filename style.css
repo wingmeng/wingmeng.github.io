@@ -80,7 +80,7 @@ main {
   padding-top: 88px;
 }
 
-section {
+main > section {
   position: relative;
   width: 100%;
   padding: 5rem 1.5rem;
@@ -258,6 +258,138 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.exp-bar {
+  --segement: calc(100% / 100);  /* 每份宽度 = 100% / 100份 */
+  --major-segment: calc(var(--segement) * 5);  /* 每5格1个主刻度 */
+
+  --color-basic: #6ec1e4;
+  --color-standard: #5bdba2;
+  --color-advanced: #ffb84d;
+  --color-expert: #c778dd;
+
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #c8f1ff;
+  border: 1px solid rgba(102, 217, 232, 0.5);
+  border-radius: 3em;
+}
+
+.exp-bar.loaded::before {width: 100%;}
+
+/* 进度 */
+.exp-bar::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  width: 0;
+  clip-path: polygon(
+    0 0,
+    calc(var(--progress) * 10%) 0,
+    calc(var(--progress) * 10%) 100%,
+    0 100%
+  );
+  background: linear-gradient(to right,
+    var(--color-basic) 0,
+    var(--color-standard) 25%,
+    var(--color-advanced) 75%,
+    var(--color-expert)
+  );
+  border-radius: 3em;
+  opacity: 0.5;
+  will-change: width;
+  transition: width 2s ease-in-out 1s;
+}
+
+/* 刻度 */
+.exp-bar::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  z-index: -1;
+  background: repeating-linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.4) 0,
+      rgba(255, 255, 255, 0.4) 1px,
+      transparent 1px,
+      transparent var(--major-segment)
+    ),
+    repeating-linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.25) 0,
+      rgba(255, 255, 255, 0.25) 1px,
+      transparent 1px,
+      transparent var(--segement)
+    );
+  /* 宽度间隔 / 刻度高度 */
+  background-size: auto 50%, auto 30%;
+  background-repeat: repeat-x;
+  background-position: left;
+  border-radius: 3em;
+}
+
+.exp-stage > h4 {
+  width: fit-content;
+  padding: 0.25em 0.6em;
+  margin: 0;
+  line-height: 1.15;
+  font-size: 1em;
+  font-weight: normal;
+  color: #000;
+  border-radius: 3em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: help;
+}
+
+.stage-basic > h4 {background: var(--color-basic);}
+.stage-standard > h4 {background: var(--color-standard);}
+.stage-advanced > h4 {background: var(--color-advanced);}
+.stage-expert > h4 {background: var(--color-expert);}
+
+.stage-descrp {
+  position: absolute;
+  width: fit-content;
+  padding: 1em;
+  transform: translateY(-10px);
+  visibility: hidden;
+  opacity: 0;
+  background: #0b1018;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: all 0.2s;
+  transition-delay: 0.2s;
+}
+
+.stage-descrp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1em;
+  transform: translateY(calc(-100% + 2px));
+  border: 8px solid transparent;
+  border-bottom-color: #0b1018;
+  filter: drop-shadow(0 -2px 0);
+}
+
+.exp-stage:hover .stage-descrp {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(7px);
+}
+
+.stage-expert > .stage-descrp {right: 0;}
+.stage-expert > .stage-descrp::before {
+  left: auto;
+  right: 1em; 
 }
 
 .ability-charts {
@@ -599,7 +731,7 @@ section {
     grid-template-columns: 1fr;
   }
 
-  section {
+  main > section {
     padding: 4rem 1.25rem;
   }
 }
