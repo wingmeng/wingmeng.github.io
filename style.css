@@ -125,10 +125,6 @@ main > section {
   margin: 0 auto;
 }
 
-.personal-copy {
-  max-width: 620px;
-}
-
 .personal-logo {
   --logo-size: 4rem;
   margin-bottom: 1.5rem;
