@@ -1,1 +1,47 @@
-theme: jekyll-theme-tactile
+title: Wing Meng - 个人主页
+description: 孟智强 (Wing Meng) - 经验丰富的 Web 前端开发者，全栈打底，懂设计，有产品思维。技术实战派，持续学习者，将优雅奉为圭臬，以匠心打磨产品。
+keywords: 前端开发, Web开发, 全栈开发, 孟智强, Wing Meng, 程序员, 开发者
+author: Wing Meng
+lang: zh-CN
+url: ""
+
+nav:
+  - label: 首页
+    href: "/#home"
+  - label: 技能
+    href: "/#skills"
+  - label: 作品
+    href: "/#projects"
+  - label: 博客
+    href: "/#blog"
+  - label: 关于
+    href: "/#about"
+  - label: 联系
+    href: "/#contact"
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - preview.html
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - nul
+  - "*.exe"

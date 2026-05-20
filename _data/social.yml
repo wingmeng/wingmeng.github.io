@@ -1,0 +1,15 @@
+intro: "如果您有合作意向，欢迎通过以下方式与我联系。我会尽快回复您的消息。"
+methods:
+  - icon: "\U0001F4E7"
+    label: 邮箱
+    type: email
+    email_name: wingmeng
+    email_domain: qq.com
+  - icon: "\U0001F419"
+    label: GitHub
+    url: "https://github.com/wingmeng"
+    target: wingmeng
+  - icon: "\U0001F4AC"
+    label: 微信
+    type: wechat
+    qr: "/assets/images/wechat-qr.png"

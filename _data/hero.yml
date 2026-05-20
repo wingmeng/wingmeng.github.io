@@ -1,0 +1,30 @@
+name: 孟智强
+english_name: Wing Meng
+description:
+  - 经验丰富的 Web 前端开发者
+  - 全栈打底，懂设计，有产品思维
+  - 技术实战派，持续学习者
+code_block: |
+  ➜ cd ~/projects/wingmeng
+  ➜ npm run build
+  ✔ 可维护组件架构
+  ✔ 工程化落地
+  ✔ 全链路交付
+
+  const profile = {
+    role: 'Full Stack Developer (Frontend Focused)',
+    focus: '数据可视化 | 产品体验 | 工程效能 | 全栈交付',
+    mindset: '将优雅奉为圭臬，以匠心打磨产品',
+  };
+actions:
+  - label: 项目历史
+    href: "/project-history"
+    primary: true
+    target: "project-history"
+  - label: 立即联系
+    href: "/#contact"
+    primary: false
+image:
+  webp: "/assets/images/workspace.webp"
+  png: "/assets/images/workspace.png"
+  alt: "工作区插图"

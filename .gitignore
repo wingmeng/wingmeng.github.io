@@ -1,4 +1,9 @@
 .vscode
-.roo
 .idea
 dist/
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+*.swp

@@ -1,0 +1,37 @@
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">个人作品</h2>
+      <a href="/projects/" class="view-all-link">查看全部 &rarr;</a>
+    </div>
+    <div class="projects-grid">
+      {% for project in site.projects %}
+      <article class="project-card">
+        {% if project.image %}
+        <div class="project-image">
+          <img src="{{ project.image }}" alt="{{ project.title }}">
+        </div>
+        {% endif %}
+        <div class="project-info">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          {% if project.links %}
+          <div class="project-links">
+            {% for link in project.links %}
+            <a href="{{ link.url }}" class="project-link {% if link.type == 'demo' %}demo-link{% else %}article-link{% endif %}" target="_blank" rel="noreferrer nofollow">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if project.tags %}
+          <div class="project-tags">
+            {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

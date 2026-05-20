@@ -1,0 +1,32 @@
+- category: 前端开发
+  items:
+    - label: "基础：TypeScript / HTML5 / CSS3"
+      level: 9
+    - label: "框架：Vue.js / React / Angular"
+      level: 7
+    - label: "可视化：ECharts / G6 / Three.js"
+      level: 8
+    - label: "多端：小程序 / H5 / 应用插件"
+      level: 6
+
+- category: 后端开发
+  items:
+    - label: "Node.js / Koa2 / NestJS"
+      level: 4
+    - label: "Python / Django"
+      level: 1
+    - label: "PHP"
+      level: 2
+    - label: "数据库"
+      level: 0.5
+
+- category: 工具与设计
+  items:
+    - label: "工程：Webpack / Vite / CI/CD"
+      level: 5
+    - label: "效能：组件库 / 脚手架 / AI 辅助开发"
+      level: 6
+    - label: "协作：Git / GitLab Flow / Swagger"
+      level: 9
+    - label: "设计：UI/UX / Axure"
+      level: 8

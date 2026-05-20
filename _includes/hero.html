@@ -1,0 +1,45 @@
+<section id="home" class="personal-section">
+  <div class="personal-content">
+    <div class="personal-copy">
+      <div class="name-wrap">
+        <h1>{{ site.data.hero.name }}</h1>
+        <small class="english-name">{{ site.data.hero.english_name }}</small>
+      </div>
+      <p class="personal-description">
+        {% for line in site.data.hero.description %}
+        {{ line }}<br>
+        {% endfor %}
+      </p>
+
+      <div class="personal-console">
+        <pre><code>{{ site.data.hero.code_block }}</code></pre>
+      </div>
+
+      <div class="personal-actions">
+        {% for action in site.data.hero.actions %}
+        {% if action.primary %}
+        <a href="{{ action.href }}" class="button button-primary"{% if action.target %} target="{{ action.target }}"{% endif %}>{{ action.label }}</a>
+        {% else %}
+        <a href="{{ action.href }}" class="button button-secondary">{{ action.label }}</a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="personal-visual">
+      <div class="ability-charts"></div>
+      <div class="exp-bar" style="--progress: {{ site.data.exp.progress }}">
+        {% for stage in site.data.exp.stages %}
+        <section class="exp-stage {{ stage.cls }}">
+          <h4>{{ stage.label }}</h4>
+          <div class="stage-descrp">{{ stage.descp }}</div>
+        </section>
+        {% endfor %}
+      </div>
+      <picture>
+        <source srcset="{{ site.data.hero.image.webp }}" type="image/webp" />
+        <img src="{{ site.data.hero.image.png }}" alt="{{ site.data.hero.image.alt }}" />
+      </picture>
+    </div>
+  </div>
+</section>

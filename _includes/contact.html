@@ -1,0 +1,31 @@
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="section-title">联系我</h2>
+    <div class="contact-content">
+      <div class="contact-info">
+        <p class="contact-text">{{ site.data.social.intro }}</p>
+        <div class="contact-methods">
+          {% for method in site.data.social.methods %}
+          {% if method.type == "email" %}
+          <a class="contact-method" title="{{ method.email_name }} 加上 {{ method.email_domain }}" onclick="openMail(event)">
+            <span class="contact-icon">{{ method.icon }}</span>
+            <span class="contact-label">{{ method.label }}</span>
+          </a>
+          {% elsif method.type == "wechat" %}
+          <div class="contact-method wechat-method">
+            <span class="contact-icon">{{ method.icon }}</span>
+            <span class="contact-label">{{ method.label }}</span>
+            <img src="{{ method.qr }}" alt="微信二维码" class="wechat-qr" />
+          </div>
+          {% else %}
+          <a class="contact-method" href="{{ method.url }}"{% if method.target %} target="{{ method.target }}"{% endif %}>
+            <span class="contact-icon">{{ method.icon }}</span>
+            <span class="contact-label">{{ method.label }}</span>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+progress: 7
+stages:
+  - label: 初级
+    cls: stage-basic
+    descp: 可以独立完成一些简单的任务，靠搜索引擎、查文档解决具体的小问题
+  - label: 中级
+    cls: stage-standard
+    descp: 具备一定的问题解决能力，能够胜任大部分常规开发任务
+  - label: 高级
+    cls: stage-advanced
+    descp: 经验丰富，能够独立解决各种各样的领域内问题，能以正确的行动来跟进问题
+  - label: 专家
+    cls: stage-expert
+    descp: 对行业内全局性、体系性的东西了如指掌，能够解决之前从未遇到过的新问题

@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<article class="project-article">
+  <div class="container">
+    <header class="project-header">
+      <h1 class="project-title">{{ page.title }}</h1>
+      {% if page.tags %}
+      <div class="project-tags" style="margin-bottom: 1.5rem;">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </header>
+    {% if page.image %}
+    <div class="project-hero-image">
+      <img src="{{ page.image }}" alt="{{ page.title }}" />
+    </div>
+    {% endif %}
+    <div class="project-content">
+      {{ content }}
+    </div>
+    {% if page.links %}
+    <div class="project-links" style="margin-top: 2rem;">
+      {% for link in page.links %}
+      <a href="{{ link.url }}" class="project-link {% if link.type == 'demo' %}demo-link{% else %}article-link{% endif %}" target="_blank" rel="noreferrer nofollow">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="post-nav">
+      <a href="/#projects" class="button button-secondary">&larr; 返回作品</a>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,31 @@
+<section id="blog" class="blog-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">博客</h2>
+      <a href="/blog/" class="view-all-link">查看全部 &rarr;</a>
+    </div>
+    <div class="blog-grid">
+      {% for post in site.posts limit:4 %}
+      <article class="blog-card">
+        <div class="blog-meta">
+          <span class="blog-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          <span class="blog-dot"></span>
+          <span class="blog-reading-time">{{ post.content | strip_html | split: "" | size | divided_by: 400 | plus: 1 }} 分钟</span>
+        </div>
+        <h3 class="blog-title">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        <div class="blog-footer">
+          <div class="blog-tags">
+            {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <a href="{{ post.url }}" class="blog-link">阅读全文 &rarr;</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
